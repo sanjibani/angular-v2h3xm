@@ -1,0 +1,17 @@
+ <div>
+      <button (click) = "addBox()">Add new</button>
+
+      <div [ngGrid]="gridConfig">
+      <div *ngFor="let box of boxes; let i = index" [(ngGridItem)]="defaultConfig" (onItemChange)="updateItem(i, $event)" (onResize)="onResize(i, $event)"
+        (onDrag)="onDrag(i, $event)">
+            <div class="handle">Widget {{box.id}}
+                <div class="box-header-btns pull-right">
+                  <a title="Remove widget" (click)="removeWidget(i);">
+                      X
+                  </a>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
